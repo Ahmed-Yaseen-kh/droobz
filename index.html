@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دروبز · تطبيق ملاحة عراقي</title>
+<meta name="description" content="دروبز: تطبيق ملاحة عراقي مجاني يوديك من أسرع طريق، وينبّهك على الحوادث والكاميرات والشوارع الغرقانة. للأندرويد.">
+<meta name="theme-color" content="#111111">
+<meta property="og:type" content="website">
+<meta property="og:title" content="دروبز · اعرف الزحمة قبل لا توصل">
+<meta property="og:description" content="تطبيق ملاحة عراقي مجاني للأندرويد: أسرع طريق، تنبيه الحوادث والكاميرات، وتوجيه صوتي خطوة بخطوة.">
+<meta property="og:image" content="https://avtxtuamnldfqjwzxbwi.supabase.co/functions/v1/api/v1/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ar_IQ">
+<link rel="icon" href="https://avtxtuamnldfqjwzxbwi.supabase.co/functions/v1/api/v1/img/icon.png">
+<link rel="apple-touch-icon" href="https://avtxtuamnldfqjwzxbwi.supabase.co/functions/v1/api/v1/img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #111111; --card: #1a1a1a; --line: #2a2a2a; --fg: #ffffff; --muted: #b9bdc2;
+    --accent: #D9773A; --accent-press: #c2652c; --ok: #3DDC84;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--fg); }
+  body { font-family: 'Cairo', system-ui, -apple-system, 'Segoe UI', Tahoma, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 480px; margin: 0 auto; padding: 20px 16px 40px; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand img { width: 44px; height: 44px; border-radius: 12px; }
+  .brand b { font-weight: 900; font-size: 22px; letter-spacing: 3px; direction: ltr; }
+  .brand b span { color: var(--accent); }
+  .pill { font-size: 13px; font-weight: 700; color: var(--muted); border: 1.5px solid var(--line); border-radius: 999px; padding: 3px 12px; white-space: nowrap; }
+  .hero { margin-top: 22px; }
+  .kicker { color: var(--accent); font-weight: 700; font-size: 15px; }
+  h1 { margin: 4px 0 6px; font-size: 38px; line-height: 1.2; font-weight: 900; }
+  .lead { margin: 0; color: #d6d7d9; font-size: 17px; }
+  .feats { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 8px; }
+  .feats li { display: flex; gap: 10px; align-items: center; font-weight: 700; font-size: 16px; }
+  .feats svg { flex: none; }
+  .card { margin-top: 20px; background: var(--card); border: 1.5px solid var(--line); border-radius: 22px; padding: 18px; }
+  .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 58px; border: 0; border-radius: 16px;
+         background: var(--accent); color: #fff; font: inherit; font-size: 20px; font-weight: 900; text-decoration: none; cursor: pointer; }
+  .btn:active { background: var(--accent-press); }
+  .btn.ghost { background: transparent; border: 1.5px solid var(--line); color: var(--fg); font-size: 16px; min-height: 48px; font-weight: 700; }
+  .sub { margin: 10px 0 0; text-align: center; color: var(--muted); font-size: 14px; }
+  .note { display: flex; gap: 10px; align-items: flex-start; background: #24180f; border: 1.5px solid #4a2d17; border-radius: 16px; padding: 12px 14px; margin-bottom: 14px; }
+  .note p { margin: 0; font-size: 15px; }
+  .note b { color: #ffb27a; }
+  h2 { font-size: 19px; margin: 0 0 10px; font-weight: 900; }
+  ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; counter-reset: s; }
+  ol.steps li { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: start; counter-increment: s; }
+  ol.steps li::before { content: counter(s); display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); font-weight: 900; }
+  ol.steps strong { display: block; font-size: 16px; }
+  ol.steps span { color: var(--muted); font-size: 14.5px; }
+  .shot { display: block; width: 62%; margin: 22px auto 0; border-radius: 26px; border: 6px solid #000; box-shadow: 0 0 0 2px var(--line), 0 24px 60px rgba(0,0,0,.6); transform: rotate(-3deg); }
+  .trust { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 20px; text-align: center; }
+  .trust div { background: var(--card); border: 1.5px solid var(--line); border-radius: 14px; padding: 10px 6px; font-size: 13px; font-weight: 700; color: #d6d7d9; }
+  .trust div b { display: block; font-size: 18px; color: var(--fg); }
+  footer { margin-top: 26px; text-align: center; color: var(--muted); font-size: 13px; }
+  footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="brand"><img src="https://avtxtuamnldfqjwzxbwi.supabase.co/functions/v1/api/v1/img/icon.png" alt="شعار دروبز" width="44" height="44"><b>DROOBZ<span>.</span></b></div>
+    <span class="pill">صُنع في العراق 🇮🇶</span>
+  </header>
+
+  <section class="hero">
+    <div class="kicker">للسواق بالعراق</div>
+    <h1>اعرف الزحمة<br>قبل لا توصل</h1>
+    <p class="lead">تطبيق ملاحة عراقي يوديك من أسرع طريق، وينبّهك على اللي قدامك.</p>
+    <ul class="feats">
+      <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D9773A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3 7 4-14 3 7h4"/></svg>أسرع طريق حسب الزحمة</li>
+      <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D9773A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg>تنبيه الحوادث والكاميرات والشوارع الغرقانة</li>
+      <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D9773A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>توجيه صوتي خطوة بخطوة</li>
+    </ul>
+  </section>
+
+  <!-- داخل متصفح فيسبوك/انستغرام على أندرويد: نطلّعه لكروم أولاً -->
+  <section class="card" id="inapp" hidden>
+    <div class="note">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb27a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>
+      <p>إنت فاتح الصفحة من داخل <b id="appName">الفيسبوك</b>، وهذا المتصفح ما ينزّل التطبيقات. افتحها بـ Chrome حتى ينزل عادي.</p>
+    </div>
+    <a class="btn" id="openChrome" href="#">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>
+      افتح بـ Chrome
+    </a>
+    <p class="sub">إذا ما اشتغل الزر: اضغط <b>⋮</b> فوق، واختار «فتح في المتصفح»</p>
+    <a class="btn ghost" id="dlAnyway" href="#" style="margin-top:12px">أو نزّله من هنا مباشرة</a>
+  </section>
+
+  <!-- أندرويد بمتصفح عادي -->
+  <section class="card" id="android">
+    <a class="btn" id="download" href="#">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="m6 11 6 6 6-6"/><path d="M5 20h14"/></svg>
+      نزّل التطبيق مجاناً
+    </a>
+    <p class="sub">للأندرويد · حجمه تقريباً 38 ميگا</p>
+  </section>
+
+  <!-- آيفون -->
+  <section class="card" id="iphone" hidden>
+    <div class="note">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb27a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>
+      <p>دروبز حالياً <b>للأندرويد فقط</b>. نسخة الآيفون جاية، تابعنا حتى تعرف أول ما تنزل.</p>
+    </div>
+    <a class="btn" id="insta" href="https://instagram.com/droobz.app">تابعنا على الانستا</a>
+  </section>
+
+  <section class="card" id="steps">
+    <h2>بعد ما ينزل الملف</h2>
+    <ol class="steps">
+      <li><div><strong>إذا طلع «الملف ممكن يضر جهازك»</strong><span>طبيعي لأي تطبيق مو من المتجر. اضغط «تنزيل على أي حال».</span></div></li>
+      <li><div><strong>افتح الملف من الإشعارات</strong><span>إذا طلب «السماح بالتثبيت من هذا المصدر»، فعّله وارجع بزر الرجوع.</span></div></li>
+      <li><div><strong>إذا طلع Play Protect</strong><span>اضغط «مزيد من التفاصيل» ثم «تثبيت على أي حال». هذا لأن التطبيق جديد بس.</span></div></li>
+      <li><div><strong>افتح دروبز واسمح بالموقع</strong><span>حتى يحسب طريقك ووقت وصولك.</span></div></li>
+    </ol>
+  </section>
+
+  <img class="shot" src="https://avtxtuamnldfqjwzxbwi.supabase.co/functions/v1/api/v1/img/shot.jpg" alt="شاشة تطبيق دروبز وهي تعرض الطريق والزحمة ببغداد" width="480" height="1044" loading="lazy">
+
+  <div class="trust">
+    <div><b>مجاني</b>بالكامل</div>
+    <div><b>بدون</b>اسم أو رقم</div>
+    <div><b>عراقي</b>100%</div>
+  </div>
+
+  <footer>
+    <p>تابعنا على الانستا: <a href="https://instagram.com/droobz.app" id="insta2"><bdi dir="ltr">@droobz.app</bdi></a></p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var APK = 'https://avtxtuamnldfqjwzxbwi.supabase.co/storage/v1/object/public/download/droobz.apk';
+  var API = 'https://avtxtuamnldfqjwzxbwi.supabase.co/functions/v1/api/v1/event';
+  var ua = navigator.userAgent || '';
+  var isAndroid = /Android/i.test(ua);
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && 'ontouchend' in document);
+  var isFB = /FBAN|FBAV|FB_IAB|FBIOS|FB4A|MessengerLite/i.test(ua);
+  var isIG = /Instagram/i.test(ua);
+  var isInApp = isFB || isIG || /\bwv\)|; wv\b|TikTok|musical_ly|Snapchat|Line\//i.test(ua);
+  var src = isIG ? 'ig' : isFB ? 'fb' : isInApp ? 'app' : isIOS ? 'ios' : isAndroid ? 'android' : 'web';
+
+  // عدّاد بسيط بدون أي معلومة شخصية: نوع الحدث ومن وين جا بس
+  function track(e) {
+    try {
+      var body = JSON.stringify({ e: e, src: src });
+      if (navigator.sendBeacon) navigator.sendBeacon(API, new Blob([body], { type: 'text/plain' }));
+      else fetch(API, { method: 'POST', body: body, mode: 'no-cors', keepalive: true });
+    } catch (err) {}
+  }
+  function show(id, on) { document.getElementById(id).hidden = !on; }
+
+  var dl = document.getElementById('download');
+  var dlAnyway = document.getElementById('dlAnyway');
+  dl.href = APK; dlAnyway.href = APK;
+  dl.addEventListener('click', function () { track('download'); });
+  dlAnyway.addEventListener('click', function () { track('download'); });
+  document.getElementById('insta').addEventListener('click', function () { track('insta'); });
+
+  if (isIOS) {
+    show('iphone', true); show('android', false); show('steps', false);
+    track('iphone');
+  } else if (isAndroid && isInApp) {
+    document.getElementById('appName').textContent = isIG ? 'الانستا' : isFB ? 'الفيسبوك' : 'تطبيق ثاني';
+    show('inapp', true); show('android', false);
+    // أندرويد يسمح نفتح نفس الصفحة بكروم مباشرة من متصفح الفيسبوك/الانستا
+    var here = location.href.replace(/^https?:\/\//, '');
+    var chrome = 'intent://' + here + '#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=' + encodeURIComponent(location.href) + ';end';
+    var btn = document.getElementById('openChrome');
+    btn.href = chrome;
+    btn.addEventListener('click', function () { track('chrome'); });
+  }
+  track('view');
+})();
+</script>
+</body>
+</html>
